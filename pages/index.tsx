@@ -8,6 +8,7 @@ export default function Home() {
   return (
     <div className="bg-white">
       <div className="bg-red-200">HOME HOLA</div>
+      <h2 className="bg-blue-200">Buenas Buenas</h2>
     </div>
   );
 }
