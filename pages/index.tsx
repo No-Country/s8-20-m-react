@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <div className="bg-white">
-      <div className="bg-red-200">HOME</div>
+      <div className="bg-red-200">HOME HOLA</div>
     </div>
   );
 }
