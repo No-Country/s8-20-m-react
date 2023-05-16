@@ -1,8 +1,7 @@
 import cookieParser from 'cookie-parser';
 import express from 'express';
+import mongoose from 'mongoose';
 import passport from 'passport';
-import config from './config/config.js';
-import MongoSingleton from './config/mongodb-singleton.js';
 import initializePassport from './config/passport.config.js';
 import __dirname from './dirname.js';
 import cartRouter from './routers/cart.router.js';
@@ -22,16 +21,20 @@ app.use('/api/products', productRouter);
 app.use('/api/carts', cartRouter);
 app.use('/api/users', userRouter);
 
-const SERVER_PORT = config.port;
+const SERVER_PORT = 3030;
 app.listen(SERVER_PORT, () => {
   console.log(`server ${SERVER_PORT}`);
 });
 
-const mongoInstance = async () => {
+const connectMongoDB = async () => {
   try {
-    await MongoSingleton.getInstance();
+    await mongoose.connect(
+      'mongodb+srv://renzonlacovara:Cofi2022@nocountry.xht26b6.mongodb.net/NoCountry?retryWrites=true&w=majority'
+    );
+    console.log('Conectado con exito a MongoDB usando Moongose.');
   } catch (error) {
-    console.error(error);
+    console.error('No se pudo conectar a la BD usando Moongose: ' + error);
+    process.exit();
   }
 };
-mongoInstance();
+connectMongoDB();

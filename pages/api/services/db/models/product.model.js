@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
-import mongoosePaginate from "mongoose-paginate-v2";
-const productsCollection = "products";
+import mongoose from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate-v2';
+const productsCollection = 'products';
 
 const stringTypeSchemaUniqueRequired = {
   type: String,
@@ -9,10 +9,6 @@ const stringTypeSchemaUniqueRequired = {
 };
 const stringTypeSchemaNonUniqueRequired = {
   type: String,
-  required: true,
-};
-const numberTypeSchemaNonUniqueRequired = {
-  type: Number,
   required: true,
 };
 const booleanTypeSchemaNonUniqueRequired = {
@@ -25,12 +21,9 @@ const arrayTypeSchemaNonUniqueRequired = {
 };
 const productSchema = new mongoose.Schema({
   title: stringTypeSchemaNonUniqueRequired,
-  autor: stringTypeSchemaNonUniqueRequired,
   description: stringTypeSchemaNonUniqueRequired,
-  price: numberTypeSchemaNonUniqueRequired,
   thumbnail: stringTypeSchemaNonUniqueRequired,
   code: stringTypeSchemaUniqueRequired,
-  stock: numberTypeSchemaNonUniqueRequired,
   category: arrayTypeSchemaNonUniqueRequired,
   available: booleanTypeSchemaNonUniqueRequired,
 });
