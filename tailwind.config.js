@@ -8,7 +8,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'my-custom-color': '#fffff'
+        primary: '#DB3839',
+        white: '#fffff',
+        background: '#EBEBEB',
       },
       screens: {
         xs: '375px',
@@ -20,5 +22,5 @@ module.exports = {
       },
     },
     plugins: [],
-  }
-}
+  },
+};
