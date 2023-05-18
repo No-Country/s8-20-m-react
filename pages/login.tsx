@@ -3,7 +3,7 @@ import LoginImg from '@/icons/LoginImg';
 import Link from 'next/link';
 import { useState } from 'react';
 
-const login = () => {
+const Login = () => {
   const [pswStyle, setPswStyle] = useState(false);
 
   const handleButtonEye = () => {
@@ -68,4 +68,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
