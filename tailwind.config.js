@@ -11,6 +11,9 @@ module.exports = {
         primary: '#DB3839',
         white: '#fffff',
         background: '#EBEBEB',
+        gray: '#7C7C7C',
+        neutro: '#585858',
+        link: '#3A57E8',
       },
       screens: {
         xs: '375px',
