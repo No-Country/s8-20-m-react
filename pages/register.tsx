@@ -35,10 +35,10 @@ const Register = () => {
         </label>
 
         <label className="flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-1" htmlFor="">Localidad
-          <input className="rounded py-2 px-4 placeholder:text-neutro placeholder:text-base" type="text" placeholder="Ej.: Santa Fé" />
+          <input className="rounded py-2 px-4 placeholder:text-neutro placeholder:text-base" type="text" placeholder="Ej.: Santa Fe" />
         </label>
 
-        <label className="flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-2" htmlFor="">Cédigo postal
+        <label className="flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-2" htmlFor="">Código postal
           <input className="rounded py-2 px-4 placeholder:text-neutro placeholder:text-base" type="text" placeholder="Ej.: 3000" />
         </label>
 
