@@ -1,12 +1,12 @@
-import { Router } from 'express';
-import { passportCall } from '../config/utility/utils.js';
-import {
+const { Router } = require('express');
+const { passportCall } = require('../config/utility/utils.js');
+const {
   deleteProduct,
   getProductById,
   getProducts,
   saveProduct,
   updateProduct,
-} from '../controllers/products.controller.js';
+} = require('../controllers/products.controller.js');
 
 const router = Router();
 
@@ -16,4 +16,4 @@ router.post('/add', saveProduct);
 router.put('/:pid', updateProduct);
 router.delete('/:pid', deleteProduct);
 
-export default router;
+module.exports = router;

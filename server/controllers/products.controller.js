@@ -1,8 +1,8 @@
-import ProductService from '../services/db/dao/product.service.js';
+const ProductService = require('../services/db/dao/product.service.js');
 
 const productService = new ProductService();
 
-export const getProducts = async (req, res) => {
+const getProducts = async (req, res) => {
   try {
     let page = parseInt(req.query.page);
     if (!page) page = 1;
@@ -20,7 +20,7 @@ export const getProducts = async (req, res) => {
   }
 };
 
-export const getProductById = async (req, res) => {
+const getProductById = async (req, res) => {
   try {
     const productId = req.params.pid;
     let filterProd = await productService.getProductById(productId);
@@ -36,7 +36,7 @@ export const getProductById = async (req, res) => {
   }
 };
 
-export const saveProduct = async (req, res) => {
+const saveProduct = async (req, res) => {
   try {
     let newProd = await productService.addProduct(req.body);
     res.send({ status: 'success', message: newProd });
@@ -44,7 +44,7 @@ export const saveProduct = async (req, res) => {
     res.status(500).send({ error: error, message: 'error creating product' });
   }
 };
-export const updateProduct = async (req, res) => {
+const updateProduct = async (req, res) => {
   try {
     const prodId = req.params.pid;
     const newProd = req.body;
@@ -59,7 +59,7 @@ export const updateProduct = async (req, res) => {
   }
 };
 
-export const deleteProduct = async (req, res) => {
+const deleteProduct = async (req, res) => {
   try {
     const productId = req.params.pid;
     let prodDeleted = await productService.deleteProduct(productId);
@@ -67,4 +67,11 @@ export const deleteProduct = async (req, res) => {
   } catch (error) {
     res.status(500).send({ error: error, message: 'Error deleting product.' });
   }
+};
+module.exports = {
+  getProducts,
+  getProductById,
+  saveProduct,
+  updateProduct,
+  deleteProduct,
 };

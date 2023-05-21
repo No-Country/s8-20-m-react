@@ -1,18 +1,18 @@
-import cookieParser from 'cookie-parser';
-import express from 'express';
-import mongoose from 'mongoose';
-import passport from 'passport';
-import initializePassport from './config/passport.config.js';
-import __dirname from './dirname.js';
-import cartRouter from './routers/cart.router.js';
-import productRouter from './routers/products.router.js';
-import userRouter from './routers/users.router.js';
+const cookieParser = require('cookie-parser');
+const express = require('express');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const initializePassport = require('./config/passport.config.js');
+// const truedirname = require('./dirname.js');
+const cartRouter = require('./routers/cart.router.js');
+const productRouter = require('./routers/products.router.js');
+const userRouter = require('./routers/users.router.js');
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public'));
+// app.use(express.static(truedirname + '/public'));
 app.use(cookieParser('blablabla'));
 
 initializePassport();

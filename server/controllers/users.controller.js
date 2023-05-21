@@ -1,12 +1,12 @@
-import {
+const {
   createHash,
   generateJWToken,
   isValidPassword,
-} from '../config/utility/utils.js';
-import UserService from '../services/db/dao/user.service.js';
+} = require('../config/utility/utils.js');
+const UserService = require('../services/db/dao/user.service.js');
 const userService = new UserService();
 
-export const logUser = async (req, res) => {
+const logUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await userService.findUser(email);
@@ -45,9 +45,9 @@ export const logUser = async (req, res) => {
   }
 };
 
-export const registerUser = async (req, res) => {
+const registerUser = async (req, res) => {
   try {
-    const { first_name, last_name, email, age, password } = req.body;
+    const { first_name, last_name, email, telephone, age, password } = req.body;
     console.log('Registrando usuario:');
     console.log(req.body);
 
@@ -61,6 +61,7 @@ export const registerUser = async (req, res) => {
       first_name,
       last_name,
       email,
+      telephone,
       age,
       password: createHash(password),
     };
@@ -74,7 +75,7 @@ export const registerUser = async (req, res) => {
   }
 };
 
-export const logoutUser = async (req, res) => {
+const logoutUser = async (req, res) => {
   try {
     res.clearCookie('jwtCookieToken');
     res.redirect('/users/login');
@@ -83,7 +84,7 @@ export const logoutUser = async (req, res) => {
   }
 };
 
-export const newPassword = async (req, res) => {
+const newPassword = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await userService.findUser(email);
@@ -105,4 +106,10 @@ export const newPassword = async (req, res) => {
       .status(500)
       .json({ error: error, message: 'Password could not be changed' });
   }
+};
+module.exports = {
+  newPassword,
+  logoutUser,
+  registerUser,
+  logUser,
 };

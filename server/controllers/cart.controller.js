@@ -1,8 +1,8 @@
-import CartService from '../services/db/dao/cart.service.js';
+const CartService = require('../services/db/dao/cart.service.js');
 
 const cartService = new CartService();
 
-export const getCart = async (req, res) => {
+const getCart = async (req, res) => {
   try {
     const { cid } = req.params;
     let filterCart = await cartService.getCartAndPop(cid);
@@ -12,7 +12,7 @@ export const getCart = async (req, res) => {
     res.status(500).send({ error: error, message: 'Invalid cart id' });
   }
 };
-export const addProductToCart = async (req, res) => {
+const addProductToCart = async (req, res) => {
   try {
     const { cid, pid } = req.params;
     let isInCart = await cartService.getProdInCart(pid);
@@ -37,7 +37,7 @@ export const addProductToCart = async (req, res) => {
   }
 };
 
-export const updateCart = async (req, res) => {
+const updateCart = async (req, res) => {
   try {
     let { newProducts } = req.body;
     let { cid } = req.params;
@@ -48,7 +48,7 @@ export const updateCart = async (req, res) => {
   }
 };
 
-export const saveCart = async (req, res) => {
+const saveCart = async (req, res) => {
   try {
     let newCart = await cartService.addCart();
     res.send({ status: 'success', message: newCart });
@@ -57,7 +57,7 @@ export const saveCart = async (req, res) => {
   }
 };
 
-export const emptyCart = async (req, res) => {
+const emptyCart = async (req, res) => {
   try {
     let { cid } = req.params;
     let result = await cartService.deleteAllProducts({ _id: cid });
@@ -66,7 +66,7 @@ export const emptyCart = async (req, res) => {
     res.status(500).send({ error: error, message: 'error deleting cart' });
   }
 };
-export const deleteProduct = async (req, res) => {
+const deleteProduct = async (req, res) => {
   try {
     const { cid, pid } = req.params;
     let result = await cartService.deleteProduct(cid, pid);
@@ -74,4 +74,12 @@ export const deleteProduct = async (req, res) => {
   } catch (error) {
     res.status(500).send({ error: error, message: 'error deleting product' });
   }
+};
+module.exports = {
+  getCart,
+  addProductToCart,
+  updateCart,
+  saveCart,
+  emptyCart,
+  deleteProduct,
 };
