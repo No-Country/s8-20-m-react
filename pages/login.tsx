@@ -11,7 +11,7 @@ const Login = () => {
     setPswStyle(!pswStyle);
   };
   return (
-    <div className="flex justify-center items-center w-[100%] bg-background">
+    <div className="flex justify-center items-center w-[100%] bg-background pb-24">
       <div className="md:flex justify-center items-center w-[50%] min-w-[320px] hidden">
         <LoginImg />
       </div>
