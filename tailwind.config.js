@@ -8,7 +8,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'my-custom-color': '#fffff'
+        primary: '#DB3839',
+        white: '#ffffff',
+        background: '#EBEBEB',
+        gray: '#7C7C7C',
+        neutro: '#585858',
+        link: '#3A57E8',
       },
       screens: {
         xs: '375px',
@@ -20,5 +25,5 @@ module.exports = {
       },
     },
     plugins: [],
-  }
-}
+  },
+};

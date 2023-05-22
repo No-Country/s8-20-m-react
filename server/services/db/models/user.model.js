@@ -1,0 +1,34 @@
+const mongoose = require('mongoose');
+
+const userCollection = 'users';
+
+const stringTypeSchemaUniqueRequired = {
+  type: String,
+  unique: true,
+  required: true,
+};
+
+const userSchema = new mongoose.Schema({
+  first_name: String,
+  last_name: String,
+  email: stringTypeSchemaUniqueRequired,
+  password: String,
+  telephone: Number,
+  role: { type: String, default: 'user', enum: ['admin', 'user'] },
+  cart: {
+    type: [
+      {
+        cartId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'cart',
+        },
+      },
+    ],
+    default: [],
+  },
+});
+// userSchema.pre("findOne", function () {
+//   this.populate("cart.cartId");
+// });
+const userModel = mongoose.model(userCollection, userSchema);
+module.exports = userModel;
