@@ -1,7 +1,7 @@
-import passport from 'passport';
-import jwtStrategy from 'passport-jwt';
-import userModel from '../services/db/models/user.model.js';
-import { PRIVATE_KEY } from './utility/utils.js';
+const passport = require('passport');
+const jwtStrategy = require('passport-jwt');
+const userModel = require('../services/db/models/user.model.js');
+const { PRIVATE_KEY } = require('./utility/utils.js');
 
 const JwtStrategy = jwtStrategy.Strategy;
 const ExtractJWT = jwtStrategy.ExtractJwt;
@@ -43,4 +43,4 @@ const initializePassport = () => {
     }
   });
 };
-export default initializePassport;
+module.exports = initializePassport;

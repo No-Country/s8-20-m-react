@@ -1,12 +1,12 @@
-import { Router } from 'express';
-import {
+const { Router } = require('express');
+const {
   addProductToCart,
   deleteProduct,
   emptyCart,
   getCart,
   saveCart,
   updateCart,
-} from '../controllers/cart.controller.js';
+} = require('../controllers/cart.controller.js');
 
 const router = Router();
 
@@ -17,4 +17,4 @@ router.put('/:cid', updateCart);
 router.delete('/:cid/products/:pid', deleteProduct);
 router.delete('/:cid', emptyCart);
 
-export default router;
+module.exports = router;

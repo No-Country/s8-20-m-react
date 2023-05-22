@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const userCollection = 'users';
 
@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
   last_name: String,
   email: stringTypeSchemaUniqueRequired,
   password: String,
-  telephone: String,
+  telephone: Number,
   role: { type: String, default: 'user', enum: ['admin', 'user'] },
   cart: {
     type: [
@@ -31,4 +31,4 @@ const userSchema = new mongoose.Schema({
 //   this.populate("cart.cartId");
 // });
 const userModel = mongoose.model(userCollection, userSchema);
-export default userModel;
+module.exports = userModel;
