@@ -27,7 +27,7 @@ const logUser = async (req, res) => {
     const tokenUser = {
       name: `${user.first_name} ${user.last_name}`,
       email: user.email,
-      age: user.age,
+      localidad: user.localidad,
       role: user.role,
     };
     const access_token = generateJWToken(tokenUser);
@@ -47,7 +47,15 @@ const logUser = async (req, res) => {
 
 const registerUser = async (req, res) => {
   try {
-    const { first_name, last_name, email, telephone, age, password } = req.body;
+    const {
+      first_name,
+      last_name,
+      email,
+      telephone,
+      codigo_postal,
+      localidad,
+      password,
+    } = req.body;
     console.log('Registrando usuario:');
     console.log(req.body);
 
@@ -62,7 +70,8 @@ const registerUser = async (req, res) => {
       last_name,
       email,
       telephone,
-      age,
+      codigo_postal,
+      localidad,
       password: createHash(password),
     };
     const result = await userService.save(user);

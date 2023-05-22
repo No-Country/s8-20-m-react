@@ -7,13 +7,25 @@ const stringTypeSchemaUniqueRequired = {
   unique: true,
   required: true,
 };
+const stringTypeSchemaRequired = {
+  type: String,
+  unique: true,
+  required: true,
+};
+const numberTypeSchemaRequired = {
+  type: String,
+  unique: true,
+  required: true,
+};
 
 const userSchema = new mongoose.Schema({
-  first_name: String,
-  last_name: String,
+  first_name: stringTypeSchemaRequired,
+  last_name: stringTypeSchemaRequired,
   email: stringTypeSchemaUniqueRequired,
-  password: String,
-  telephone: Number,
+  password: stringTypeSchemaRequired,
+  telephone: numberTypeSchemaRequired,
+  localidad: stringTypeSchemaRequired,
+  codigo_postal: numberTypeSchemaRequired,
   role: { type: String, default: 'user', enum: ['admin', 'user'] },
   cart: {
     type: [

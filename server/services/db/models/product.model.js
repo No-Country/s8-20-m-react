@@ -11,10 +11,6 @@ const stringTypeSchemaNonUniqueRequired = {
   type: String,
   required: true,
 };
-const booleanTypeSchemaNonUniqueRequired = {
-  type: Boolean,
-  required: true,
-};
 const arrayTypeSchemaNonUniqueRequired = {
   type: Array,
   required: true,
@@ -25,7 +21,11 @@ const productSchema = new mongoose.Schema({
   thumbnail: stringTypeSchemaNonUniqueRequired,
   code: stringTypeSchemaUniqueRequired,
   category: arrayTypeSchemaNonUniqueRequired,
-  available: booleanTypeSchemaNonUniqueRequired,
+  status: {
+    type: String,
+    default: 'pending',
+    enum: ['pending', 'reserved', 'complete'],
+  },
 });
 
 productSchema.plugin(mongoosePaginate);
