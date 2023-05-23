@@ -118,7 +118,7 @@ const Register = () => {
 
             <label className={`${errors.email && "text-[#FF0000] relative"} flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-1`} htmlFor="email">Email
               <input {...register("email", { required: true })} className={`${errors.email && "border-[1.5px] border-[#FF0000]"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type="text" placeholder="Ej.: nombre@gmail.com" />
-              {errors.name && <div
+              {errors.email && <div
                 className="absolute right-1 bottom-1"
               >
                 <WarningIcon />
@@ -127,7 +127,7 @@ const Register = () => {
 
             <label className={`${errors.telephone && "text-[#FF0000] relative"} flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-2`} htmlFor="telephone">Teléfono celular
               <input {...register("telephone", { required: true })} className={`${errors.telephone && "border-[1.5px] border-[#FF0000]"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type="text" placeholder="Ej.: 1123456789" />
-              {errors.name && <div
+              {errors.telephone && <div
                 className="absolute right-1 bottom-1"
               >
                 <WarningIcon />
@@ -136,7 +136,7 @@ const Register = () => {
 
             <label className={`${errors.city && "text-[#FF0000] relative"} flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-1`} htmlFor="city">Localidad
               <input {...register("city", { required: true })} className={`${errors.city && "border-[1.5px] border-[#FF0000]"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type="text" placeholder="Ej.: Santa Fe" />
-              {errors.name && <div
+              {errors.city && <div
                 className="absolute right-1 bottom-1"
               >
                 <WarningIcon />
@@ -145,7 +145,7 @@ const Register = () => {
 
             <label className={`${errors.zipcode && "text-[#FF0000] relative"} flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-2`} htmlFor="zipcode">Código postal
               <input {...register("zipcode", { required: true })} className={`${errors.zipcode && "border-[1.5px] border-[#FF0000]"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type="text" placeholder="Ej.: 3000" />
-              {errors.name && <div
+              {errors.zipcode && <div
                 className="absolute right-1 bottom-1"
               >
                 <WarningIcon />
@@ -184,7 +184,7 @@ const Register = () => {
             </label>
             {errors.tyc && <p className="text-sm text-red-500 mt-[-60px] lg:col-span-2 lg:mt-1 lg:mb-8 lg:text-center ">Por favor acepta los términos y condiciones</p>}
 
-            <button type="submit" className="bg-primary text-stone-50 px-12 py-3 rounded-2xl mb-4 sm:mx-auto sm:mt-[-2rem] sm:mb-8 md:w-48 md:self-center lg:col-span-2 lg:place-self-center lg:mt-4">Registrarme</button>
+            <button type="submit" className="bg-primary text-stone-50 px-12 py-3 rounded-2xl mb-4 sm:mx-auto sm:mt-[-2rem] sm:mb-8 md:w-48 md:self-center lg:col-span-2 lg:place-self-center lg:mt-4 transition-all active:bg-[#d25c5c] hover:bg-[#a22424] hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]">Registrarme</button>
           </form>
           <div className="text-sm text-center">
             <p>¿Ya tenés una cuenta? <Link className="text-link underline" href="/login">Iniciá sesión</Link></p>
