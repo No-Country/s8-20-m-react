@@ -98,7 +98,7 @@ const Register = () => {
           >
 
             <label className="flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-1" htmlFor="name">Nombre
-              <input {...register("name", { required: true })} className={` ${errors.name && "border-primary"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type="text" placeholder="Ej.: Juan" />
+              <input {...register("name", { required: true })} className={` ${errors.name && "border-red "} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type="text" placeholder="Ej.: Juan" />
               {errors.name && <p className="text-sm text-red-500">Por favor ingresa tu nombre</p>}
             </label>
 
@@ -142,7 +142,7 @@ const Register = () => {
             {errors.password && <p className="text-sm text-red-500 col-auto lg:col-start-1">Por favor ingresa tu contraseña</p>}
 
             <label className="flex flex-col gap-2 text-xs text-gray relative col-auto lg:row-start-4 lg:col-start-2" htmlFor="repeatPassword">Repetir contraseña
-              <input {...register("repeatPassword", { required: true })} className={`runded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type={`${pswStyle2 ? 'text' : 'password'}`} />
+              <input {...register("repeatPassword", { required: true })} className={`rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type={`${pswStyle2 ? 'text' : 'password'}`} />
 
               <button
                 className="absolute right-1 bottom-1"
@@ -155,11 +155,11 @@ const Register = () => {
             </label>
             {errors.repeatPassword && <p className="text-sm text-red-500 col-auto lg:col-start-2">Por favor repite tu contraseña y asegurate que coincide con el campo anterior</p>}
 
-            <label htmlFor="tyc" className="text-xs flex gap-2 text-center mb-11 lg:col-span-2 lg:mb-7 lg:mt-6">
+            <label htmlFor="tyc" className="text-xs flex gap-2 text-center mb-11 lg:col-span-2 lg:mb-1 lg:mt-6">
               <input {...register("tyc", { required: true })} type="radio" className={`w-6 h-6 rounded accent-primary block hover:drop-shadow-[0px_4px_8px_rgba(0,_0,_0,_0.1)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} />
               Acepto los <Link className="text-link contents" href="#">Términos y condiciones</Link>, la <Link className="text-link contents" href="#">Política de privacidad</Link> y la <Link className="text-link contents" href="#">Política de Cookies</Link>.
             </label>
-            {errors.tyc && <p className="text-sm text-red-500 mt-[-60px] lg:col-span-2 lg:mt-2">Por favor acepta los términos y condiciones</p>}
+            {errors.tyc && <p className="text-sm text-red-500 mt-[-60px] lg:col-span-2 lg:mt-1 lg:mb-8 lg:text-center ">Por favor acepta los términos y condiciones</p>}
 
             <button type="submit" className="bg-primary text-stone-50 px-12 py-3 rounded-2xl mb-4 sm:mx-auto sm:mt-[-2rem] sm:mb-8 md:w-48 md:self-center lg:col-span-2 lg:place-self-center">Registrarme</button>
           </form>
