@@ -8,7 +8,13 @@ const cartRouter = require('./routers/cart.router.js');
 const productRouter = require('./routers/products.router.js');
 const userRouter = require('./routers/users.router.js');
 
+// yarn add cors => importar el modulo cors
+const cors = require('cors');
+
 const app = express();
+
+// se pasa cors como middleware
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

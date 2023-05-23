@@ -41,18 +41,16 @@ const Register = () => {
       first_name: data.name,
       last_name: data.lastname,
       email: data.email,
-
       telephone: data.telephone,
-      city: data.city,
-      zipcode: data.zipcode,
+      localidad: data.city,
+      codigo_postal: data.zipcode,
       password: data.password,
-      tyc: data.tyc
     }
 
     // fetch
     console.log(registerData)
 
-    fetch('/api/users/register', {
+    fetch('http://localhost:3030/api/users/register', {
       method: 'POST',
       body: JSON.stringify(registerData),
       headers: {
@@ -61,13 +59,16 @@ const Register = () => {
     })
       .then((result) => {
         if (result.status === 201) {
+          console.log(result)
           result.json();
           // mensaje de confirmación
           alert('Usuario creado con exito!');
           reset()
           router.push('/login')
+          return;
         }
         // mensaje de error
+        console.log(result)
         alert('No se pudo crear el usuario!');
       })
     // 
