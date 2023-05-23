@@ -1,6 +1,14 @@
 import '@/styles/globals.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { ThemeProvider } from '@material-tailwind/react';
 import type { AppProps } from 'next/app';
+config.autoAddCss = false;
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <ThemeProvider>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 }
