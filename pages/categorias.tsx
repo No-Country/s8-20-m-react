@@ -20,7 +20,7 @@ const Categorias = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-4">
           <div className="flex flex-col items-center relative group rounded-3xl h-80 ">
             <Image
-              src={images[0].src || '/Category1.png'}
+              src={images[0].src}
               alt={images[0].title}
               width={288}
               height={288}
