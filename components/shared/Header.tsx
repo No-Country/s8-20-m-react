@@ -27,7 +27,7 @@ const Header = () => {
             <li className="nav-item">
               <Link
                 className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-primary hover:opacity-75"
-                href={'/categories'}
+                href={'/categorias'}
               >
                 <span className="ml-2">Categorías</span>
               </Link>
