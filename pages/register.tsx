@@ -48,8 +48,6 @@ const Register = () => {
     }
 
     // fetch
-    console.log(registerData)
-
     fetch('http://localhost:3030/api/users/register', {
       method: 'POST',
       body: JSON.stringify(registerData),
@@ -59,7 +57,6 @@ const Register = () => {
     })
       .then((result) => {
         if (result.status === 201) {
-          console.log(result)
           result.json();
           // mensaje de confirmación
           alert('Usuario creado con exito!');
