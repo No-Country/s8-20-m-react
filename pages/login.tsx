@@ -115,7 +115,7 @@ const Login = () => {
               </Link>
             </div>
           </div>
-          <button type="submit" className="bg-primary text-stone-50 px-8 py-3 sm:mt-4 rounded-2xl mb-4 sm:mx-auto sm:mt-[-2rem] sm:mb-8 md:w-48 md:self-center lg:col-span-2 lg:place-self-center transition-all active:bg-[#d25c5c] hover:bg-[#a22424] hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]">Iniciar Sesión</button>
+          <button type="submit" className="bg-primary text-stone-50 px-8 py-3 rounded-2xl mb-4 sm:mx-auto sm:mb-8 md:w-48 md:self-center lg:col-span-2 lg:place-self-center transition-all active:bg-[#d25c5c] hover:bg-[#a22424] hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]">Iniciar Sesión</button>
         </form>
         <p className="mt-8 mb-14">
           No tienes cuenta?
