@@ -129,6 +129,7 @@ const profile = () => {
                       width={25}
                       height={25}
                   />
+                  
                 </div>
               <h3>{image.title}</h3>
               <p>{image.subtitle}</p>
