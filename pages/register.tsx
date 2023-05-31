@@ -1,5 +1,6 @@
 import EyeIcon from "@/icons/EyeIcon";
 import RegisterImg from "@/icons/RegisterImg";
+import WarningIcon from "@/icons/WarningIcon";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -40,18 +41,16 @@ const Register = () => {
       first_name: data.name,
       last_name: data.lastname,
       email: data.email,
-
       telephone: data.telephone,
-      city: data.city,
-      zipcode: data.zipcode,
+      localidad: data.city,
+      codigo_postal: data.zipcode,
       password: data.password,
-      tyc: data.tyc
     }
 
     // fetch
     console.log(registerData)
 
-    fetch('/api/users/register', {
+    fetch('http://localhost:3030/api/users/register', {
       method: 'POST',
       body: JSON.stringify(registerData),
       headers: {
@@ -60,13 +59,16 @@ const Register = () => {
     })
       .then((result) => {
         if (result.status === 201) {
+          console.log(result)
           result.json();
           // mensaje de confirmación
           alert('Usuario creado con exito!');
           reset()
           router.push('/login')
+          return;
         }
         // mensaje de error
+        console.log(result)
         alert('No se pudo crear el usuario!');
       })
     // 
@@ -97,38 +99,62 @@ const Register = () => {
             }}
           >
 
-            <label className="flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-1" htmlFor="name">Nombre
-              <input {...register("name", { required: true })} className="rounded py-2 px-4 placeholder:text-neutro placeholder:text-base" type="text" placeholder="Ej.: Juan" />
-              {errors.name && <p className="text-sm text-red-500">Por favor ingresa tu nombre</p>}
+            <label className={`${errors.name && "text-[#FF0000] relative"} flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-1`} htmlFor="name">Nombre
+              <input {...register("name", { required: true })} className={`${errors.name && "border-[1.5px] border-[#FF0000]"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type="text" placeholder="Ej.: Juan" />
+              {errors.name && <div
+                className="absolute right-1 bottom-1"
+              >
+                <WarningIcon />
+              </div>}
             </label>
 
-            <label className="flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-2" htmlFor="lastname">Apellido
-              <input {...register("lastname", { required: true })} className="rounded py-2 px-4 placeholder:text-neutro placeholder:text-base" type="text" placeholder="Ej.: Gómez" />
-              {errors.lastname && <p className="text-sm text-red-500">Por favor ingresa tu apellido</p>}
+            <label className={`${errors.lastname && "text-[#FF0000] relative"} flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-2`} htmlFor="lastname">Apellido
+              <input {...register("lastname", { required: true })} className={`${errors.lastname && "border-[1.5px] border-[#FF0000]"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type="text" placeholder="Ej.: Gómez" />
+              {errors.lastname && <div
+                className="absolute right-1 bottom-1"
+              >
+                <WarningIcon />
+              </div>}
             </label>
 
-            <label className="flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-1" htmlFor="email">Email
-              <input {...register("email", { required: true })} className="rounded py-2 px-4 placeholder:text-neutro placeholder:text-base" type="text" placeholder="Ej.: nombre@gmail.com" />
-              {errors.email && <p className="text-sm text-red-500">Por favor ingresa tu email</p>}
+            <label className={`${errors.email && "text-[#FF0000] relative"} flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-1`} htmlFor="email">Email
+              <input {...register("email", { required: true })} className={`${errors.email && "border-[1.5px] border-[#FF0000]"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type="text" placeholder="Ej.: nombre@gmail.com" />
+              {errors.email && <div
+                className="absolute right-1 bottom-1"
+              >
+                <WarningIcon />
+              </div>}
             </label>
 
-            <label className="flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-2" htmlFor="telephone">Teléfono celular
-              <input {...register("telephone", { required: true })} className="rounded py-2 px-4 placeholder:text-neutro placeholder:text-base" type="text" placeholder="Ej.: 1123456789" />
-              {errors.telephone && <p className="text-sm text-red-500">Por favor ingresa tu teléfono celular</p>}
+            <label className={`${errors.telephone && "text-[#FF0000] relative"} flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-2`} htmlFor="telephone">Teléfono celular
+              <input {...register("telephone", { required: true })} className={`${errors.telephone && "border-[1.5px] border-[#FF0000]"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type="text" placeholder="Ej.: 1123456789" />
+              {errors.telephone && <div
+                className="absolute right-1 bottom-1"
+              >
+                <WarningIcon />
+              </div>}
             </label>
 
-            <label className="flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-1" htmlFor="city">Localidad
-              <input {...register("city", { required: true })} className="rounded py-2 px-4 placeholder:text-neutro placeholder:text-base" type="text" placeholder="Ej.: Santa Fe" />
-              {errors.city && <p className="text-sm text-red-500">Por favor ingresa tu localidad</p>}
+            <label className={`${errors.city && "text-[#FF0000] relative"} flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-1`} htmlFor="city">Localidad
+              <input {...register("city", { required: true })} className={`${errors.city && "border-[1.5px] border-[#FF0000]"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type="text" placeholder="Ej.: Santa Fe" />
+              {errors.city && <div
+                className="absolute right-1 bottom-1"
+              >
+                <WarningIcon />
+              </div>}
             </label>
 
-            <label className="flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-2" htmlFor="zipcode">Código postal
-              <input {...register("zipcode", { required: true })} className="rounded py-2 px-4 placeholder:text-neutro placeholder:text-base" type="text" placeholder="Ej.: 3000" />
-              {errors.zipcode && <p className="text-sm text-red-500">Por favor ingresa tu código postal</p>}
+            <label className={`${errors.zipcode && "text-[#FF0000] relative"} flex flex-col gap-2 text-xs text-gray col-auto lg:col-start-2`} htmlFor="zipcode">Código postal
+              <input {...register("zipcode", { required: true })} className={`${errors.zipcode && "border-[1.5px] border-[#FF0000]"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type="text" placeholder="Ej.: 3000" />
+              {errors.zipcode && <div
+                className="absolute right-1 bottom-1"
+              >
+                <WarningIcon />
+              </div>}
             </label>
 
-            <label className="flex flex-col gap-2 text-xs text-gray relative col-auto lg:col-start-1" htmlFor="password">Contraseña
-              <input {...register("password", { required: true })} className="rounded py-2 px-4 placeholder:text-neutro placeholder:text-base" type={`${pswStyle1 ? 'text' : 'password'}`} />
+            <label className={`${errors.password && "text-[#FF0000] relative"} flex flex-col gap-2 text-xs text-gray relative col-auto lg:col-start-1`} htmlFor="password">Contraseña
+              <input {...register("password", { required: true })} className={`${errors.password && "border-[1.5px] border-[#FF0000]"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type={`${pswStyle1 ? 'text' : 'password'}`} />
 
               <button
                 className="absolute right-1 bottom-1"
@@ -139,10 +165,9 @@ const Register = () => {
               </button>
 
             </label>
-            {errors.password && <p className="text-sm text-red-500 col-auto lg:col-start-1">Por favor ingresa tu contraseña</p>}
 
-            <label className="flex flex-col gap-2 text-xs text-gray relative col-auto lg:row-start-4 lg:col-start-2" htmlFor="repeatPassword">Repetir contraseña
-              <input {...register("repeatPassword", { required: true })} className="rounded py-2 px-4 placeholder:text-neutro placeholder:text-base" type={`${pswStyle2 ? 'text' : 'password'}`} />
+            <label className={`${errors.repeatPassword && "text-[#FF0000] relative"} flex flex-col gap-2 text-xs text-gray relative col-auto lg:row-start-4 lg:col-start-2`} htmlFor="repeatPassword">Repetir contraseña
+              <input {...register("repeatPassword", { required: true })} className={`${errors.repeatPassword && "border-[1.5px] border-[#FF0000]"} rounded py-2 px-4 placeholder:text-neutro placeholder:text-base hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)] transition-all focus:shadow-[0px_1px_2px_rgba(0,_0,_0,_0.3),_0px_2px_6px_2px_rgba(0,_0,_0,_0.15)]`} type={`${pswStyle2 ? 'text' : 'password'}`} />
 
               <button
                 className="absolute right-1 bottom-1"
@@ -153,15 +178,14 @@ const Register = () => {
               </button>
 
             </label>
-            {errors.repeatPassword && <p className="text-sm text-red-500 col-auto lg:col-start-2">Por favor repite tu contraseña y asegurate que coincide con el campo anterior</p>}
 
-            <label htmlFor="tyc" className="text-xs flex gap-2 text-center mb-11 lg:col-span-2 lg:mb-7 lg:mt-6">
-              <input {...register("tyc", { required: true })} type="radio" className="w-6 h-6 block" />
+            <label htmlFor="tyc" className="text-xs flex gap-2 text-center mb-11 lg:col-span-2 lg:mb-1 lg:mt-6">
+              <input {...register("tyc", { required: true })} type="radio" className={`w-6 h-6 rounded accent-primary block hover:drop-shadow-[0px_4px_8px_rgba(0,_0,_0,_0.1)] transition-all focus:drop-[0px_1px_2px_rgba(0,_0,_0,_0.3)]`} />
               Acepto los <Link className="text-link contents" href="#">Términos y condiciones</Link>, la <Link className="text-link contents" href="#">Política de privacidad</Link> y la <Link className="text-link contents" href="#">Política de Cookies</Link>.
             </label>
-            {errors.tyc && <p className="text-sm text-red-500 mt-[-60px]">Por favor acepta los términos y condiciones</p>}
+            {errors.tyc && <p className="text-sm text-red-500 mt-[-60px] lg:col-span-2 lg:mt-1 lg:mb-8 lg:text-center ">Por favor acepta los términos y condiciones</p>}
 
-            <button type="submit" className="bg-primary text-stone-50 px-12 py-3 rounded-2xl mb-4 sm:mx-auto sm:mt-[-2rem] sm:mb-8 md:w-48 md:self-center lg:col-span-2 lg:place-self-center">Registrarme</button>
+            <button type="submit" className="bg-primary text-stone-50 px-12 py-3 rounded-2xl mb-4 sm:mx-auto sm:mt-[-2rem] sm:mb-8 md:w-48 md:self-center lg:col-span-2 lg:place-self-center lg:mt-4 transition-all active:bg-[#d25c5c] hover:bg-[#a22424] hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]">Registrarme</button>
           </form>
           <div className="text-sm text-center">
             <p>¿Ya tenés una cuenta? <Link className="text-link underline" href="/login">Iniciá sesión</Link></p>
