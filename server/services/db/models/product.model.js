@@ -18,9 +18,9 @@ const arrayTypeSchemaNonUniqueRequired = {
 const productSchema = new mongoose.Schema({
   title: stringTypeSchemaNonUniqueRequired,
   description: stringTypeSchemaNonUniqueRequired,
-  thumbnail: stringTypeSchemaNonUniqueRequired,
+  thumbnail: String,
   code: stringTypeSchemaUniqueRequired,
-  category: arrayTypeSchemaNonUniqueRequired,
+  category: stringTypeSchemaNonUniqueRequired,
   status: {
     type: String,
     default: 'pending',

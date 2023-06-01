@@ -37,8 +37,9 @@ const getProductById = async (req, res) => {
 };
 
 const saveProduct = async (req, res) => {
+  let data = req.body;
   try {
-    let newProd = await productService.addProduct(req.body);
+    let newProd = await productService.addProduct(data);
     res.send({ status: 'success', message: newProd });
   } catch (error) {
     res.status(500).send({ error: error, message: 'error creating product' });
