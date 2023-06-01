@@ -1,10 +1,15 @@
 import Logo from '@/icons/Logo';
-import { Avatar } from '@material-tailwind/react';
 import Link from 'next/link';
+import Search from "./search"
+import Image from "next/image";
 
 const Header = () => {
   // const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   // const closeMenu = () => setIsMenuOpen(false);
+  //const handleSubmit = (query: string) => {
+    // aquí puedes hacer lo que desees con la query
+    //console.log(`Buscando: ${query}`)
+  //}
 
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-headerBg mb-3 shadow-[0px_6px_10px_4px_rgba(0,0,0,0.05),0px_2px_3px_rgba(0,0,0,0.04)]">
@@ -33,16 +38,22 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <div className="relative flex w-full sm:w-7/12 md:w-5/12 px-4 flex-wrap items-stretch lg:ml-auto">
-            <input type="text" className="" placeholder="Search" />
-          </div>
-          <Avatar
-            variant="circular"
-            size="sm"
-            alt="candice wu"
-            className="border border-blue-500 p-0.5"
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-          />
+          <div className="container mx-auto">
+      <Search  />
+        </div>
+        <Link
+                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-primary hover:opacity-75"
+                href={'/profile'}
+              >
+                 <Image
+              src="/Button.png"
+              alt="perfil"
+              width={140}
+              height={140}
+              quality={100}
+              
+            />
+              </Link>
         </div>
       </div>
     </nav>
