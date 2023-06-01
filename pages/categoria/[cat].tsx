@@ -28,7 +28,8 @@ function ItemList() {
 
             <ul className="grid grid-cols-2 gap-x-2 gap-y-6 p-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:px-28">
                 {data.map((e, idx) => <li className="rounded-[10px] overflow-hidden bg-white" key={idx}>
-                    <Link href="/item/id">
+                    {/* cambiar a '/item/id' */}
+                    <Link href="/product">
                         <div className="w-full h-[166px] bg-gray "></div>
                         <h2 className="text-xl mt-2 text-center py-2 text-neutro">Titulo</h2>
                     </Link>

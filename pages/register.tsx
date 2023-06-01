@@ -1,6 +1,6 @@
 import EyeIcon from "@/icons/EyeIcon";
-import RegisterImg from "@/icons/RegisterImg";
 import WarningIcon from "@/icons/WarningIcon";
+import Image from 'next/image';
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -77,8 +77,7 @@ const Register = () => {
       <div className="p-4 bg-background min-h-full lg:flex lg:justify-center lg:gap-24">
 
         <div className="hidden lg:block">
-
-          <RegisterImg />
+          <Image alt="register image" src="/registerImg.png" width={706} height={728} />
         </div>
 
         <div>
