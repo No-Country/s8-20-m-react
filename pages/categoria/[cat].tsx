@@ -18,7 +18,7 @@ function ItemList() {
             <div className="flex justify-between px-4 lg:flex-col">
                 <div className="flex lg:border-b-2 lg:pb-3 lg:border-[#b6b6b6]">
                     <Link href="/categorias" className="flex items-center"> <ArrowRight /> </Link>
-                    <h1 className="text-2xl lg:text-3xl capitalize">{catName.replace('-', ' ')}</h1>
+                    <h1 className="text-2xl lg:text-3xl capitalize">{catName && catName.replace('-', ' ')}</h1>
                 </div>
                 <button className="flex items-center content-center lg:mt-8">
                     <FilterIcon className="w-6 h-6 lg:w-12 lg:h-12" />
