@@ -1,7 +1,7 @@
 import EyeIcon from '@/icons/EyeIcon';
-import LoginImg from '@/icons/LoginImg';
 import Logo from '@/icons/Logo';
 import WarningIcon from '@/icons/WarningIcon';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -59,9 +59,9 @@ const Login = () => {
 
 
   return (
-    <div className="flex justify-center items-center w-[100%] bg-background pb-24 px-4">
+    <div className="flex justify-center items-center w-[100%] bg-background pb-24 pt-4 px-4">
       <div className="md:flex justify-center items-center w-[50%] min-w-[320px] hidden">
-        <LoginImg />
+        <Image alt="login image" src="/loginImg.png" width={594} height={620} />
       </div>
       <div className="flex flex-col justify-center items-center md:w-[50%] w-full">
         <form

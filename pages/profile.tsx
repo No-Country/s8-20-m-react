@@ -1,3 +1,4 @@
+import CheckHeart from "@/icons/CheckHeart";
 import HeartIcon from "@/icons/HeartIcon";
 import Image from "next/image";
 
@@ -88,7 +89,7 @@ const profile = () => {
             <h2 className="text-2xl">{user.name}</h2>
             <p>{user.city}</p>
             <div className="bg-gray-800">
-              <button>Editar</button>
+              <button className="bg-black text-white px-12 py-1 rounded-xl">Editar</button>
             </div>
           </div>
           </div>
@@ -104,9 +105,7 @@ const profile = () => {
             <h2 className="text-4xl">Mis Donaciones</h2>
           </div>
           <div className="flex justify-around w-1/4" >
-            <div>icon1</div>
-            <div>icon2</div>
-            <div>icon3</div>
+            <button className="bg-primary px-12 py-3 rounded-2xl">Mis Donaciones</button>
           </div>
         </div>
       </div>
@@ -123,12 +122,15 @@ const profile = () => {
               
             <div className="absolute inset-0 bg-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-3xl"></div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <Image
-                      src={user.photo}
-                      alt="Overlay"
-                      width={25}
-                      height={25}
-                  />
+                  {/* <Image 
+                      // src={user.photo}
+                      // alt="Overlay"
+                      // width={25}
+                      // height={25}
+                   /> */}
+                   
+                  <CheckHeart/>
+                    
                   
                 </div>
               <h3>{image.title}</h3>
