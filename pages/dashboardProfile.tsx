@@ -39,25 +39,29 @@ const dashboardProfile = () => {
 
   
     return (
-        <div>
-            <div className="bg-sky-300 h-80">
-              <div>
-                <Image
-                src="/emphaty.png"
-                alt="food_donation"
-                width={324}
-                height={324}
-              />
-              </div>
-              <Image
-                src="/food_donation.png"
-                alt="food_donation"
-                width={324}
-                height={324}
-              />
-                
+        <div className="">
+            <div className="bg-secondary h-80 relative ">
               
+                <div className="absolute flex justify-between w-full">
+                  <Image
+                  src="/Empathy.png"
+                  alt="empathy"
+                  width={324}
+                  height={324}
+                  />
                 
+                <h2 className="">
+                  lucia torres
+                </h2>
+                
+                <Image
+                  src="/Food_donation.png"
+                  alt="food_donation"
+                  width={324}
+                  height={324}
+                  />
+              
+            </div>    
             </div>
             
             <div className="container mx-auto px-4">

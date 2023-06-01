@@ -35,6 +35,7 @@ const ProfileUsuario = () => {
           </button>
           <h1 className="text-2xl">Remera casual blanca</h1>
         </div>
+        
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
