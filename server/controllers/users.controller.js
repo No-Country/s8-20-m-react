@@ -37,7 +37,7 @@ const logUser = async (req, res) => {
       maxAge: 60000,
       httpOnly: true,
     });
-    res.send({ message: 'Login successful!' });
+    res.send({ message: 'Login successful!', token: access_token });
   } catch (error) {
     return res
       .status(500)
