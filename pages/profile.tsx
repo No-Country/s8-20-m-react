@@ -83,8 +83,8 @@ const profile = () => {
     <div className="bg-background h-full pt-10  ">
       <div className="flex container mx-auto ">
         <div className="flex  gap-4 container mx-auto px-4">
-          <div>
-            <Image src={user.photo} alt={user.name} width={80} height={80} />
+          <div className="">
+            <Image src={user.photo} alt={user.name} width={80} height={80} className="rounded-full"/>
           </div>
           <div>
             <h2 className="text-2xl">{user.name}</h2>
@@ -125,7 +125,10 @@ const profile = () => {
                 width={400} 
                 height={400}
               />
+              <div className="">
+                
             {image.subtitle}
+              </div>
               <div className="absolute z-20">
               
                 <Button />
