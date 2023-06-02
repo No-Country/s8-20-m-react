@@ -1,10 +1,12 @@
 import HeartIcon from "@/icons/HeartIcon";
 
-const HeartIconComp = ({count}) => {
+const HeartIconComp = ({count}:{count:Number}) => {
+    count=0;
     return (
+        
         <div className="relative text-white ">
             <HeartIcon />
-            <p className="heartIcon">{count}</p>
+            <p className="heartIcon">{String (count)}</p>
         </div>
     );
 };
