@@ -1,6 +1,7 @@
-import CheckHeart from "@/icons/CheckHeart";
-import HeartIcon from "@/icons/HeartIcon";
+import Button from "@/components/Button";
+import HeartIconComp from "@/components/HeartIconComp";
 import Image from "next/image";
+import Link from "next/link";
 
 
 
@@ -16,66 +17,66 @@ const profile = () => {
   
   const images = [
     {
-      src: "https://img.lovepik.com/element/45003/9415.png_860.png",
+      src: "/ProductEjemplo.png",
       title: "Imagen 1",
-      subtitle: "Descripción 1"
+      subtitle: "Remera Casual"
     },
     {
-      src: "https://img.lovepik.com/element/45003/9415.png_860.png",
+      src: "/ProductEjemplo.png",
       title: "Imagen 2",
-      subtitle: "Descripción 2"
+      subtitle: "Remera Casual"
     },
     {
-      src: "https://img.lovepik.com/element/45003/9415.png_860.png",
+      src: "/ProductEjemplo.png",
       title: "Imagen 3",
-      subtitle: "Descripción 3"
+      subtitle: "Remera Casual"
     },
     {
-      src: "https://img.lovepik.com/element/45003/9415.png_860.png",
+      src: "/ProductEjemplo.png",
       title: "Imagen 1",
-      subtitle: "Descripción 1"
+      subtitle: "Remera Casual"
     },
     {
-      src: "https://img.lovepik.com/element/45003/9415.png_860.png",
+      src: "/ProductEjemplo.png",
       title: "Imagen 2",
-      subtitle: "Descripción 2"
+      subtitle: "Remera Casual"
     },
     {
-      src: "https://img.lovepik.com/element/45003/9415.png_860.png",
+      src: "/ProductEjemplo.png",
       title: "Imagen 3",
-      subtitle: "Descripción 3"
+      subtitle: "Remera Casual"
     },
     {
-      src: "https://img.lovepik.com/element/45003/9415.png_860.png",
+      src: "/ProductEjemplo.png",
       title: "Imagen 1",
-      subtitle: "Descripción 1"
+      subtitle: "Remera Casual"
     },
     {
-      src: "https://img.lovepik.com/element/45003/9415.png_860.png",
+      src: "/ProductEjemplo.png",
       title: "Imagen 2",
-      subtitle: "Descripción 2"
+      subtitle: "Remera Casual"
     },
     {
-      src: "https://img.lovepik.com/element/45003/9415.png_860.png",
+      src: "/ProductEjemplo.png",
       title: "Imagen 3",
-      subtitle: "Descripción 3"
+      subtitle: "Remera Casual"
     },
     {
-      src: "https://img.lovepik.com/element/45003/9415.png_860.png",
+      src: "/ProductEjemplo.png",
       title: "Imagen 1",
-      subtitle: "Descripción 1"
+      subtitle: "Remera Casual"
     },
     {
-      src: "https://img.lovepik.com/element/45003/9415.png_860.png",
+      src: "/ProductEjemplo.png",
       title: "Imagen 2",
-      subtitle: "Descripción 2"
+      subtitle: "Remera Casual"
     },
     {
-      src: "https://img.lovepik.com/element/45003/9415.png_860.png",
+      src: "/ProductEjemplo.png",
       title: "Imagen 3",
-      subtitle: "Descripción 3"
+      subtitle: "Remera Casual"
     },
-        // Agrega más nombres de imágenes según sea necesario
+    
   ];
   
   return (
@@ -94,8 +95,9 @@ const profile = () => {
           </div>
           </div>
           <div className="flex gap-4">
-            <div><HeartIcon /></div>
-            <div><HeartIcon /></div>
+            <HeartIconComp  count={4} text={'flex container mx-auto px-4 pt-10 pb-10 justify-between'} />
+            <HeartIconComp  count={2} />
+            
           </div>
             
       </div>
@@ -103,38 +105,40 @@ const profile = () => {
         <div className="flex container mx-auto px-4 pt-10 pb-10 justify-between ">
           <div>
             <h2 className="text-4xl">Mis Donaciones</h2>
+            
           </div>
           <div className="flex justify-around w-1/4" >
-            <button className="bg-primary px-12 py-3 rounded-2xl">Mis Donaciones</button>
+            <Link href={`/dashboardProfile`}>
+              <button className="bg-primary px-14 py-3 rounded-2xl text-white">Donar</button>
+            </Link>
           </div>
         </div>
       </div>
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 ">
           {images.map((image, index) => (
-            <div key={index} className="flex flex-col items-center relative group rounded-3xl">
-              <Image 
+            <div key={index} className="flex flex-col items-end relative group rounded-3xl pb-4  bg-white">
+              
+              <Image className="relative"
                 src={image.src} 
                 alt={image.title}
-                width={200} 
-                height={200}
-            />
+                width={400} 
+                height={400}
+              />
+            {image.subtitle}
+              <div className="absolute z-20">
               
-            <div className="absolute inset-0 bg-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-3xl"></div>
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  {/* <Image 
-                      // src={user.photo}
-                      // alt="Overlay"
-                      // width={25}
-                      // height={25}
-                   /> */}
+                <Button />
+              </div>
+            
+            {/* <div className="absolute inset-0 bg-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-3xl"></div> */}
+                {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                    
                   <CheckHeart/>
                     
-                  
-                </div>
-              <h3>{image.title}</h3>
-              <p>{image.subtitle}</p>
+                </div> */}
+              
+              {/* <p>{image.subtitle}</p> */}
             </div>
           ))}
         </div>

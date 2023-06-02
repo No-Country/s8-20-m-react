@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.heartIcon {
+    position: absolute;
+    top: 30%;
+    right: 43%;
+    
+}
