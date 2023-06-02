@@ -1,6 +1,6 @@
 import HeartIcon from "@/icons/HeartIcon";
 
-const HeartIconComp = ({count, texts}) => {
+const HeartIconComp = ({count}) => {
     return (
         <div className="relative text-white ">
             <HeartIcon />
