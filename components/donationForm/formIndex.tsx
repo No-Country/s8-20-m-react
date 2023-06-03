@@ -24,11 +24,9 @@ const FormIndex: FunctionComponent<FormStep1Props> = ({ donationStep, setDonatio
 
 
     return (
-        <div className="border mx-auto p-4 min-h-screen flex flex-col">
+        <div className="mx-auto p-4 min-h-screen flex flex-col">
 
             <Counter currentStep={donationStep} />
-
-            <h2>PASO {donationStep}</h2>
 
             {donationStep === 1 && <FirstStep />}
             {donationStep === 2 && <SecondStep />}
