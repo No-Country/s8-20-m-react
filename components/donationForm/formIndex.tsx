@@ -34,10 +34,9 @@ const FormIndex: FunctionComponent<FormStep1Props> = ({ donationStep, setDonatio
             {donationStep === 4 && <FourthStep />}
             {donationStep === 5 && <FifthStep />}
 
-            <div className="flex">
-
-                {donationStep > 1 && <button className="border w-1/2 p-2" onClick={handlePrev}>Atras</button>}
-                {donationStep !== 5 && <button className="border w-1/2 p-2" onClick={handleNext}>Siguiente</button>}
+            <div className="flex gap-2 mt-16 mb-14">
+                {donationStep > 1 && <button className="w-full text-primary text-sm px-12 py-3 rounded-2xl transition-all border border-black active:border-[#d25c5c] hover:bg-white hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]" onClick={handlePrev}>Atrás</button>}
+                {donationStep !== 5 && <button className=" w-full bg-primary text-white text-sm px-12 py-3 rounded-2xl transition-all active:bg-[#d25c5c] hover:bg-[#a22424] hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]" onClick={handleNext}>Siguiente</button>}
             </div>
 
         </div>
