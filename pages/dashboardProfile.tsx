@@ -75,7 +75,7 @@ const DashboardProfile = () => {
           <div className="absolute w-full h-full left-0 top-0 flex justify-between">
             <button onClick={minusHability} disabled = {hability === 1} className="mx-2 rotate-180"><ArrowFoward/></button>
             
-          <button onClick={moreHability} disabled = {hability === Math.ceil(user.length/imageDonatePerHability)} className="mx-2 "><ArrowFoward/></button>
+          <button onClick={moreHability} disabled = {hability === Math.ceil(imageDataBase.length/imageDonatePerHability)} className="mx-2 "><ArrowFoward/></button>
           </div>
           {idb.map((image, index) => (
             <div key={index} className="flex-row items-center relative group rounded-3xl pt-5 pb-5">
