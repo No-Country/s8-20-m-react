@@ -3,18 +3,10 @@ const ProductService = require('../services/db/dao/product.service.js');
 const productService = new ProductService();
 
 const getProducts = async (req, res) => {
+  let result = await productService.getProductList();
+  console.log(result);
   try {
-    let page = parseInt(req.query.page);
-    if (!page) page = 1;
-    let result = await productService.getProducts(page);
-    result.prevLink = result.hasPrevPage
-      ? `http://localhost:9090/api/products?page=${result.prevPage}`
-      : '';
-    result.nextLink = result.hasNextPage
-      ? `http://localhost:9090/api/products?page=${result.nextPage}`
-      : '';
-    result.isValid = !(page <= 0 || page > result.totalPages);
-    res.render('products', result);
+    res.send({ status: 'success', message: result });
   } catch (error) {
     res.status(500).send({ error: error, message: 'error getting products' });
   }
@@ -24,6 +16,21 @@ const getProductById = async (req, res) => {
   try {
     const productId = req.params.pid;
     let filterProd = await productService.getProductById(productId);
+    if (filterProd) {
+      res.send({ status: 'success', message: filterProd });
+    } else {
+      res.send({ status: 'error', message: 'Invalid product id' });
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .send({ error: error, message: 'error getting product by id' });
+  }
+};
+const getProductByCat = async (req, res) => {
+  try {
+    const productCat = req.params.cat;
+    let filterProd = await productService.getProductByCat(productCat);
     if (filterProd) {
       res.send({ status: 'success', message: filterProd });
     } else {
@@ -72,6 +79,7 @@ const deleteProduct = async (req, res) => {
 module.exports = {
   getProducts,
   getProductById,
+  getProductByCat,
   saveProduct,
   updateProduct,
   deleteProduct,

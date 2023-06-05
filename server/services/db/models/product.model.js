@@ -28,6 +28,6 @@ const productSchema = new mongoose.Schema({
   },
 });
 
-productSchema.plugin(mongoosePaginate);
+// productSchema.plugin(mongoosePaginate);
 const productModel = mongoose.model(productsCollection, productSchema);
 module.exports = productModel;

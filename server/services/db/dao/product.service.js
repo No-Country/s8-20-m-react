@@ -1,12 +1,10 @@
 const productModel = require('../models/product.model.js');
 
 class ProductService {
-  getProducts = async (page) =>
-    await productModel.paginate(
-      { available: true },
-      { page: page, limit: 5, lean: true, sort: { price: 1 } }
-    );
+  getProductList = async () => await productModel.find({});
   getProductById = async (id) => await productModel.findById(id);
+  getProductByCategory = async (cat) =>
+    await productModel.find({ category: cat });
   addProduct = async (body) => {
     return await productModel.create(body);
   };
