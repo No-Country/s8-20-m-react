@@ -16,7 +16,7 @@ const DashboardProfile = () => {
   const imageDonatePerHability = 6
   const finalIndex = hability*imageDonatePerHability
   const firstIndex = (hability - 1)*imageDonatePerHability;
-  console.log(Math.ceil((user.length)/(imageDonatePerHability)));
+  console.log(Math.ceil((imageDataBase.length)/(imageDonatePerHability)));
   
   const idb = imageDataBase.slice(firstIndex, finalIndex);
   
