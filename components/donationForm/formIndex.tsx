@@ -35,8 +35,8 @@ const FormIndex: FunctionComponent<FormStep1Props> = ({ donationStep, setDonatio
             {donationStep === 5 && <FifthStep />}
 
             <div className="flex gap-2 mt-16 mb-14">
-                {donationStep > 1 && <button className="w-full text-primary text-sm px-12 py-3 rounded-2xl transition-all border border-black active:border-[#d25c5c] hover:bg-white hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]" onClick={handlePrev}>Atrás</button>}
-                {donationStep !== 5 && <button className=" w-full bg-primary text-white text-sm px-12 py-3 rounded-2xl transition-all active:bg-[#d25c5c] hover:bg-[#a22424] hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]" onClick={handleNext}>Siguiente</button>}
+                {donationStep > 1 && <button className={`${donationStep === 5 ? "w-full mx-auto sm:w-1/2" : "w-full"} w-full text-primary text-sm px-12 py-3 rounded-2xl transition-all border border-black active:border-[#d25c5c] hover:bg-white hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]`} onClick={handlePrev}>Atrás</button>}
+                {donationStep !== 5 && <button className={`${donationStep === 1 ? "w-full mx-auto sm:w-1/2" : "w-full"} bg-primary text-white text-sm px-12 py-3 rounded-2xl transition-all active:bg-[#d25c5c] hover:bg-[#a22424] hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]`} onClick={handleNext}>Siguiente</button>}
             </div>
 
         </div>
