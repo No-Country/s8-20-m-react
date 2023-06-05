@@ -3,19 +3,19 @@ import { useState } from "react";
 
 function Donation() {
 
-    const initialState = {
-        photos: [],
-        coverImg: '',
-        title: '',
-        categories: {
-            catName: '',
-            type: '',
-            size: '',
-            product: '',
-            state: ''
-        },
-        description: '',
-    }
+    // const initialState = {
+    //     photos: [],
+    //     coverImg: '',
+    //     title: '',
+    //     categories: {
+    //         catName: '',
+    //         type: '',
+    //         size: '',
+    //         product: '',
+    //         state: ''
+    //     },
+    //     description: '',
+    // }
 
     // const [donationState, setDonationState] = useState<typeof initialState>(initialState)
     const [donationStep, setDonationStep] = useState<number>(1)
