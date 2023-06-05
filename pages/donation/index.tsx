@@ -17,7 +17,7 @@ function Donation() {
         description: '',
     }
 
-    const [donationState, setDonationState] = useState<typeof initialState>(initialState)
+    // const [donationState, setDonationState] = useState<typeof initialState>(initialState)
     const [donationStep, setDonationStep] = useState<number>(1)
 
     return (
