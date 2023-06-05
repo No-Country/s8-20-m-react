@@ -95,7 +95,7 @@ const profile = () => {
           </div>
           </div>
           <div className="flex gap-4">
-            <HeartIconComp  count={4} />
+            <HeartIconComp  count={4}    />
             <HeartIconComp  count={2} />
             
           </div>

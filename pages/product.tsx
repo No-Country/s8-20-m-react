@@ -4,7 +4,7 @@ import Pencil from '@/icons/Pencil';
 import Place from '@/icons/Place';
 import Trash from '@/icons/Trash';
 import Verified from '@/icons/Verified';
-import { Avatar, Tooltip } from '@material-tailwind/react';
+import { Avatar, Carousel, Tooltip } from '@material-tailwind/react';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -91,7 +91,20 @@ const Product = () => {
           <h1 className="text-2xl">Remera casual blanca</h1>
         </div>
       </div>
-      <div className="grid md:grid-cols-2 gap-4">
+      <Carousel className="rounded-xl md:hidden">
+        {images.map((image, index) => (
+          <div key={index} className="flex justify-center">
+            <Image
+              src={image.src}
+              width={500}
+              height={500}
+              alt={image.alt}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        ))}
+      </Carousel>
+      <div className="hidden md:grid md:grid-cols-2 gap-4">
         <div>
           <Image
             src="/ProductEjemplo.png"
