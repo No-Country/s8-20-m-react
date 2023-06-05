@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary">
       <div className="py-7">
-        <ul className="flex flex-col sm:flex-row items-center justify-center gap-5">
+        <ul className="flex flex-row items-center justify-center gap-5">
           <li>
             <Link href={'/'}>
               <LogoFooter />
