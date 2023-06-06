@@ -6,7 +6,7 @@ function FirstStep() {
         <div className="">
             <h1 className="text-[1.37rem] my-4 text-left">Subí fotos de tu producto</h1>
             <form>
-                <div className="my-3 border-[3px] border-[#7C7C7C] rounded-2xl border-dashed h-[178px] px-8 py-4 flex flex-col justify-center ">
+                <div className="my-3 border-[3px] border-[#7C7C7C] rounded-2xl border-dashed h-[178px] md:h-[22rem] md:w-4/5 md:mx-auto m px-8 py-4 flex flex-col justify-center ">
                     <div className='relative mx-auto w-[65px] h-[56px] overflow-hidden'>
                         <Image src='/uploadImg.png' alt='upload img' fill className="object-cover" />
                     </div>

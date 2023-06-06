@@ -1,6 +1,6 @@
 function FifthStep() {
     return (
-        <div className="">
+        <div className="md:mx-24">
             <h1 className="text-[1.37rem] my-4 text-left">Agregá una descripción</h1>
             <p className="mb-6 text-xs">Escribí una breve descripción de tu producto. Podés incluir colores, medidas, lo que quieras.</p>
             <form>

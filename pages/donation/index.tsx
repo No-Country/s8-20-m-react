@@ -4,17 +4,12 @@ import { useState } from "react";
 function Donation() {
 
     // const initialState = {
-    //     photos: [],
-    //     coverImg: '',
     //     title: '',
-    //     categories: {
-    //         catName: '',
-    //         type: '',
-    //         size: '',
-    //         product: '',
-    //         state: ''
-    //     },
     //     description: '',
+    //     thumbnail: '',
+    //     code: '???',
+    //     categories: '',
+    //     status: '',
     // }
 
     // const [donationState, setDonationState] = useState<typeof initialState>(initialState)

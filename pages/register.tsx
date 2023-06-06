@@ -282,15 +282,15 @@ const Register = () => {
                 type="radio"
                 className={`w-6 h-6 rounded accent-primary block hover:drop-shadow-[0px_4px_8px_rgba(0,_0,_0,_0.1)] transition-all focus:drop-[0px_1px_2px_rgba(0,_0,_0,_0.3)]`}
               />
-              Acepto los{' '}
+              Acepto los
               <Link className="text-link contents" href="#">
                 Términos y condiciones
               </Link>
-              , la{' '}
+              , la
               <Link className="text-link contents" href="#">
                 Política de privacidad
-              </Link>{' '}
-              y la{' '}
+              </Link>
+              y la
               <Link className="text-link contents" href="#">
                 Política de Cookies
               </Link>
@@ -311,7 +311,7 @@ const Register = () => {
           </form>
           <div className="text-sm text-center">
             <p>
-              ¿Ya tenés una cuenta?{' '}
+              ¿Ya tenés una cuenta?
               <Link className="underline text-link" href="/login">
                 Iniciá sesión
               </Link>
