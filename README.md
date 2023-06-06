@@ -8,17 +8,22 @@
 
 ## Roles
 
-#
+# Back End
 
-#
+- Renzo Lacovara
 
-#
+# Diseño UX-UI
 
-#
+- Sofía Bessonart
+- Anderson Ocampo
+- Gabriela Esther Mortensen
 
-#
+# Front End
 
-#
+- Nancy Clavijo
+- Maximiliano Maiz
+- Linda Perea
+- Luis Simosa
 
 ## Link
 
