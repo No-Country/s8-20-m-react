@@ -1,5 +1,4 @@
 const ProductService = require('../services/db/dao/product.service.js');
-
 const productService = new ProductService();
 
 const getProducts = async (req, res) => {
@@ -31,6 +30,23 @@ const getProductByCat = async (req, res) => {
   try {
     const productCat = req.params.cat;
     let filterProd = await productService.getProductByCat(productCat);
+    if (filterProd) {
+      res.send({ status: 'success', message: filterProd });
+    } else {
+      res.send({ status: 'error', message: 'Invalid product id' });
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .send({ error: error, message: 'error getting product by id' });
+  }
+};
+const getProductByName = async (req, res) => {
+  try {
+    const productName = req.params.query;
+
+    let filterProd = await productService.getProductByName(productName);
+
     if (filterProd) {
       res.send({ status: 'success', message: filterProd });
     } else {
@@ -83,4 +99,5 @@ module.exports = {
   saveProduct,
   updateProduct,
   deleteProduct,
+  getProductByName,
 };
