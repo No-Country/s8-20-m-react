@@ -4,10 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-
-const profile = () => {
-
-  
+const Profile = () => {
+    
   const user = 
   {
     name: "Lucía Torres",
@@ -108,7 +106,7 @@ const profile = () => {
             
           </div>
           <div className="flex justify-around w-1/4" >
-            <Link href={`/dashboardProfile`}>
+            <Link href={`/donation`}>
               <button className="bg-primary px-14 py-3 rounded-2xl text-white">Donar</button>
             </Link>
           </div>
@@ -150,4 +148,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;
