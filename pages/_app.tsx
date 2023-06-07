@@ -1,13 +1,19 @@
 import '@/styles/globals.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { ThemeProvider } from '@material-tailwind/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { AppProps } from 'next/app';
 
 
 export default function App({ Component, pageProps }: AppProps) {
+
+  const queryClient = new QueryClient()
+
   return (
-    <ThemeProvider>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
