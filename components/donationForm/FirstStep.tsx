@@ -1,7 +1,15 @@
 import LoadingImg from "@/icons/loadingImg";
 import Image from "next/image";
+import { type FunctionComponent } from "react";
+import { type FieldErrors, type FieldValues, type UseFormRegister } from "react-hook-form";
 
-function FirstStep() {
+
+interface FirstStepInterface {
+    register: UseFormRegister<FieldValues>,
+    errors: FieldErrors<FieldValues>
+}
+
+const FirstStep: FunctionComponent<FirstStepInterface> = ({ register }) => {
     return (
         <div className="">
             <h1 className="text-[1.37rem] my-4 text-left">Subí fotos de tu producto</h1>

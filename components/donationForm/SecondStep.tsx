@@ -1,6 +1,13 @@
 import LoadingImg from "@/icons/loadingImg";
+import { type FunctionComponent } from "react";
+import { type FieldErrors, type FieldValues, type UseFormRegister } from "react-hook-form";
 
-function SecondStep() {
+interface SecondStepInterface {
+    register: UseFormRegister<FieldValues>,
+    errors: FieldErrors<FieldValues>
+}
+
+const SecondStep: FunctionComponent<SecondStepInterface> = ({ register, errors }) => {
     return (
         <div className="">
             <h1 className="text-[1.37rem] my-4 text-left md:ml-64 ">Elegí una portada</h1>
