@@ -34,20 +34,18 @@ import { imageDataBase, user } from "../utils/array";
 
 const DashboardProfile = () => {
   
-  // fetch('http://localhost:3000/api/products', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   })
-  //     .then((res) => {
-  //       if (res.status === 200) {
-  //         console.log(res);
-  //         return;
-  //       }
-  //       console.log(res)
+  fetch('http://localhost:3000/api/products', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => {
+                return res;
+        }
         
-  //     })
+      )
+      .catch((error)=> console.error(error));
     
   
   //  axios.get('https://s8-20-m-react.vercel.app/api/products')
@@ -129,24 +127,14 @@ const DashboardProfile = () => {
                   <button onClick={moreHability} disabled = {hability === Math.ceil(imageDataBase.length/imageDonatePerHability)} className="mx-2 "><ArrowFoward/></button>
                 </div>
                   {idb.map((image, index) => (
-                    <div key={index} className="flex-row items-center relative group rounded-3xl pt-5 pb-5">
+                    <div key={index} className="gridImageProfile flex-row items-center relative group rounded-3xl pt-5 pb-5">
                       <Image 
-                        src={image.src} 
+                        src={image.src}
                         alt={image.title}
-                        width={200} 
+                        width={200}
                         height={200}
                       />
-                  
-                      {/* <div className="absolute inset-0 bg-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-3xl"></div> */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        {/* <Image 
-                          // src={user.photo}
-                          // alt="Overlay"
-                          // width={25}
-                          // height={25}
-                        /> */}                      
-                      </div>
-                      <h3>{image.title}</h3>                  
+                      <h3>{image.title}</h3>
                     </div>
                   ))}
             
