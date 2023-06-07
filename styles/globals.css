@@ -8,3 +8,12 @@
     right: 43%;
     
 }
+
+@media (max-witdh: 375px) {
+    
+    .gridImageProfile {
+        display: grid;
+        grid-template-columns: 175px;
+        grid-template-rows: 175px;
+    }
+}
