@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const initializePassport = require('./config/passport.config.js');
-// const truedirname = require('./dirname.js');
 const cartRouter = require('./routers/cart.router.js');
 const productRouter = require('./routers/products.router.js');
 const userRouter = require('./routers/users.router.js');
@@ -15,7 +14,6 @@ const app = express();
 
 // se pasa cors como middleware
 app.use(cors());
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(truedirname + '/public'));

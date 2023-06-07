@@ -37,6 +37,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.1.1",
     "mongoose-paginate-v2": "^1.7.1",
+    "multer": "^1.4.5-lts.1",
     "next": "13.4.2",
     "nodemon": "^2.0.22",
     "passport": "^0.6.0",
@@ -45,7 +46,8 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
     "swr": "^2.1.5",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",
