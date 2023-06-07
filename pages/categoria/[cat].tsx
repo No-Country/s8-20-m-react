@@ -50,7 +50,7 @@ function ItemList() {
                         <Link href="/categorias" className="flex items-center"> <ArrowRight /> </Link>
                         <h1 className="text-2xl lg:text-3xl capitalize">{catName && catName.replace('-', ' ')}</h1>
                     </div>
-                    <button className="flex items-center content-center lg:mt-8">
+                    <button className="flex items-center lg:mt-8">
                         <FilterIcon className="w-6 h-6 lg:w-12 lg:h-12" />
                         <span className="text-sm w-fit lg:text-3xl ">Filtrar</span>
                     </button>
