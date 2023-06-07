@@ -6,13 +6,9 @@ const nextConfig = {
         ? 'http://localhost:3000/'
         : 'http://localhost:3000/',
   },
-  
+
   images: {
-    domains: [
-      'i1.rgstatic.net',
-      'img.lovepik.com',
-  ],
-    
+    domains: ['i1.rgstatic.net', 'img.lovepik.com', 'cdn.filestackcontent.com'],
   },
   reactStrictMode: true,
 };

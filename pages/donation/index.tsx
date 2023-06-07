@@ -4,10 +4,7 @@ import { useForm, type FieldValues } from "react-hook-form";
 
 function Donation() {
 
-
     const [donationStep, setDonationStep] = useState<number>(1)
-
-
 
     const {
         register,

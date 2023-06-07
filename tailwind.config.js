@@ -30,6 +30,9 @@ module.exports = withMT({
         xl: '1536px',
         xxl: '1800px',
       },
+      fontFamily: {
+        dmSans: ['var(--font-dmSans)'],
+      },
     },
     plugins: [],
   },
