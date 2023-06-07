@@ -30,6 +30,11 @@ const FormIndex: FunctionComponent<FormStep1Props> = ({
 
     const handleNext = () => {
 
+        if (donationStep === 2) {
+            const values = getValues()
+            console.log(values)
+        }
+
         if (donationStep === 5) {
             console.log("ENVIANDO...")
         }
@@ -58,11 +63,28 @@ const FormIndex: FunctionComponent<FormStep1Props> = ({
 
             {donationStep < 6 && <Counter currentStep={donationStep} />}
 
-            {donationStep === 1 && <FirstStep register={register} errors={errors} />}
-            {donationStep === 2 && <SecondStep register={register} errors={errors} />}
-            {donationStep === 3 && <ThirdStep register={register} errors={errors} />}
-            {donationStep === 4 && <FourthStep register={register} errors={errors} />}
-            {donationStep === 5 && <FifthStep register={register} errors={errors} />}
+            {donationStep === 1 && <FirstStep
+                register={register}
+                errors={errors}
+                getValues={getValues}
+            />}
+            {donationStep === 2 && <SecondStep
+                register={register}
+                // errors={errors}
+                getValues={getValues}
+            />}
+            {donationStep === 3 && <ThirdStep
+                register={register}
+                errors={errors}
+            />}
+            {donationStep === 4 && <FourthStep
+                register={register}
+                errors={errors}
+            />}
+            {donationStep === 5 && <FifthStep
+                register={register}
+                errors={errors}
+            />}
             {donationStep === 6 && <FinalStep />}
 
             <div className="flex gap-2 mt-16 mb-14 md:justify-center">
