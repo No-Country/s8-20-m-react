@@ -5,6 +5,8 @@ class ProductService {
   getProductById = async (id) => await productModel.findById(id);
   getProductByCategory = async (cat) =>
     await productModel.find({ category: cat });
+  getProductByName = async (name) =>
+    await productModel.find({ title: { $regex: name, $options: 'i' } });
   addProduct = async (body) => {
     return await productModel.create(body);
   };
