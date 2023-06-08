@@ -195,7 +195,7 @@ const Product = () => {
         <div className="p-4 md:p-20">
             <div className="flex pb-4">
                 <div className="flex items-center justify-items-center">
-                    <button onClick={() => { router.push("/categorias") }}>
+                    <button onClick={() => { router.push(`/categoria/${data.category}`) }}>
                         <Arrow />
                     </button>
                     <h1 className="text-2xl capitalize">{data.title}</h1>

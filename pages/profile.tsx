@@ -216,7 +216,7 @@ const Profile = () => {
             <h2 className="text-4xl">Mis Donaciones</h2>
           </div>
           <div className="flex justify-around w-1/4">
-            <Link href={`/dashboardProfile`}>
+            <Link href={`/donation`}>
               <button className="py-3 text-white bg-primary px-14 rounded-2xl">
                 Donar
               </button>
