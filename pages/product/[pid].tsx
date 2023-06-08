@@ -88,7 +88,7 @@ const Product = () => {
     const { pid } = router.query
 
     const fetchItem = async () => {
-        const data = await fetch(`http://localhost:3030/api/products/${pid}`, {
+        const data = await fetch(`https://donarebackend.onrender.com/api/products/${pid}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

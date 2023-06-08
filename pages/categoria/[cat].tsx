@@ -21,7 +21,7 @@ function ItemList() {
     const { cat } = router.query
 
     const fetchItems = async () => {
-        const data = await fetch('http://localhost:3030/api/products', {
+        const data = await fetch('https://donarebackend.onrender.com/api/products', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

@@ -29,7 +29,7 @@ function Donation() {
         };
 
         // fetch
-        fetch('http://localhost:3030/api/products/add', {
+        fetch('https://donarebackend.onrender.com/api/products/add', {
             method: 'POST',
             body: JSON.stringify(productData),
             headers: {
