@@ -1,30 +1,14 @@
-<<<<<<< HEAD
 import Button from '@/components/Button';
 import HeartIconComp from '@/components/HeartIconComp';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const profile = () => {
+const Profile = () => {
   const user = {
     name: 'Lucía Torres',
     city: 'Buenos Aires, Argentina',
     photo:
       'https://i1.rgstatic.net/ii/profile.image/1031678541717514-1622982740292_Q128/Olga-Torres-Vargas.jpg',
-=======
-import Button from "@/components/Button";
-import HeartIconComp from "@/components/HeartIconComp";
-import Image from "next/image";
-import Link from "next/link";
-
-
-const Profile = () => {
-    
-  const user = 
-  {
-    name: "Lucía Torres",
-    city: "Buenos Aires, Argentina",
-    photo: "https://i1.rgstatic.net/ii/profile.image/1031678541717514-1622982740292_Q128/Olga-Torres-Vargas.jpg",
->>>>>>> af0e56a2c5a18cdb89f163e0c550d86e8847b414
   };
 
   const images = [
@@ -123,17 +107,11 @@ const Profile = () => {
           <div>
             <h2 className="text-4xl">Mis Donaciones</h2>
           </div>
-<<<<<<< HEAD
           <div className="flex justify-around w-1/4">
-            <Link href={`/dashboardProfile`}>
+            <Link href={`/donation`}>
               <button className="py-3 text-white bg-primary px-14 rounded-2xl">
                 Donar
               </button>
-=======
-          <div className="flex justify-around w-1/4" >
-            <Link href={`/donation`}>
-              <button className="bg-primary px-14 py-3 rounded-2xl text-white">Donar</button>
->>>>>>> af0e56a2c5a18cdb89f163e0c550d86e8847b414
             </Link>
           </div>
         </div>
@@ -173,8 +151,4 @@ const Profile = () => {
   );
 };
 
-<<<<<<< HEAD
-export default profile;
-=======
 export default Profile;
->>>>>>> af0e56a2c5a18cdb89f163e0c550d86e8847b414
