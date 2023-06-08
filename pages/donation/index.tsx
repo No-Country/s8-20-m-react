@@ -5,6 +5,7 @@ import { useForm, type FieldValues } from "react-hook-form";
 function Donation() {
 
     const [donationStep, setDonationStep] = useState<number>(1)
+    const [responseId, setResponseId] = useState<string>()
 
     const {
         register,
@@ -36,9 +37,11 @@ function Donation() {
             },
         }).then((result) => {
             if (result.ok) {
-                result.json();
+                result.json().then(res => {
+                    setResponseId(res.message._id)
+                })
+
                 // mensaje de confirmación
-                alert('Producto publicado con exito');
                 reset();
                 return;
             }
@@ -61,6 +64,7 @@ function Donation() {
             onSubmit={onSubmit}
             setValue={setValue}
             watch={watch}
+            responseId={responseId}
         />
     )
 }

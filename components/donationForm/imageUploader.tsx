@@ -28,6 +28,8 @@ const ImageUploader: FunctionComponent<ImageUploaderProps> = ({ setImageUrl, chi
 
         const newPicker = client.picker(options);
         setPicker(newPicker)
+
+        // eslint-disable-next-line no-console, react-hooks/exhaustive-deps
     }, []);
 
 

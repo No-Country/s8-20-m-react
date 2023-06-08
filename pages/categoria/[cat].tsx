@@ -1,6 +1,7 @@
 import ArrowRight from "@/icons/ArrowRight";
 import FilterIcon from "@/icons/FilterIcon";
 import { useQuery } from '@tanstack/react-query';
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -11,6 +12,7 @@ interface ItemInterface {
     code: string,
     category: string,
     status: string,
+    thumbnail: string
 }
 
 function ItemList() {
@@ -85,7 +87,9 @@ function ItemList() {
             <ul className="grid grid-cols-2 gap-x-2 gap-y-6 p-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:px-28">
                 {data.map((e: ItemInterface) => <li className="rounded-[10px] overflow-hidden bg-white" key={e._id}>
                     <Link href={`/product/${e._id}`}>
-                        <div className="w-full h-[166px] bg-gray"></div>
+                        <div className="w-full h-[166px] bg-gray relative overflow-hidden">
+                            <Image src={e.thumbnail} alt={e.title} fill className="object-cover" />
+                        </div>
                         <h2 className="text-xl mt-2 text-center py-2 text-neutro">{e.title}</h2>
                     </Link>
                 </li>)}

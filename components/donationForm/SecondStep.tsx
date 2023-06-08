@@ -1,3 +1,4 @@
+import CheckIcon from "@/icons/checkIcon";
 import Image from "next/image";
 import { type FunctionComponent } from "react";
 import {
@@ -34,10 +35,11 @@ const SecondStep: FunctionComponent<SecondStepInterface> = ({
 
             <div className="my-3 flex flex-wrap gap-3 mx-auto w-fit justify-left">
                 {element.map((e: string, idx: number) => (
-                    <label key={idx} htmlFor={`${idx}thumbnail`} className={`${selectedImg === e ? 'border-2 border-red-500' : ''}`} >
-                        <div className="min-w-[95px] min-h-[90px] md:min-w-[156px] md:min-h-[152px] rounded-[10px] bg-[#E8E8E8] flex justify-center items-center relative overflow-hidden">
-                            <Image src={e} alt="" fill className="object-cover" />
-                            <input type="radio" name={`thumbnail`} id={`${idx}thumbnail`} value={e} onClick={() => setValue('thumbnail', e)} />
+                    <label key={idx} htmlFor={`${idx}thumbnail`}  >
+                        <div className={` ${selectedImg === e ? 'bg-red-500 ' : ''} min-w-[95px] min-h-[90px] md:min-w-[156px] md:min-h-[152px] rounded-[10px] bg-[#E8E8E8] flex justify-center items-center relative overflow-hidden transition`}>
+                            <Image src={e} alt="" fill className={`${selectedImg === e ? 'opacity-30 ' : ''} object-cover transition`} />
+                            <input type="radio" name={`thumbnail`} id={`${idx}thumbnail`} value={e} onClick={() => setValue('thumbnail', e)} hidden />
+                            {selectedImg === e && <CheckIcon className="opacity-100 z-10" />}
                         </div>
                     </label>
                 ))}
