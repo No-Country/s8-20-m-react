@@ -2,8 +2,13 @@ import Spiral from '@/icons/Spiral';
 import Spiral2 from '@/icons/Spiral2';
 import Waves from '@/icons/Waves';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+
+  const router = useRouter();
+
+
   return (
     <div className="bg-white relative">
       <div className="absolute top-0 left-0 z-0">
@@ -28,7 +33,7 @@ export default function Home() {
             mas solidario y sustentable.
           </p>
           <div className="relative z-10">
-            <button className="bg-primary p-3 px-20 rounded-2xl cursor-pointer text-lg text-white font-bold hover:bg-red-900 transition-colors	">
+            <button className="bg-primary p-3 px-20 rounded-2xl cursor-pointer text-lg text-white font-bold hover:bg-red-900 transition-colors" onClick={() => { router.push('/donation') }} >
               Quiero donar
             </button>
           </div>

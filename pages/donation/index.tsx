@@ -5,14 +5,16 @@ import { useForm, type FieldValues } from "react-hook-form";
 function Donation() {
 
     const [donationStep, setDonationStep] = useState<number>(1)
+    const [responseId, setResponseId] = useState<string>()
 
     const {
         register,
-        handleSubmit,
         reset,
         formState,
         formState: { errors },
-        getValues
+        getValues,
+        setValue,
+        watch
     } = useForm();
 
     const onSubmit = (data: FieldValues) => {
@@ -20,7 +22,7 @@ function Donation() {
         const productData = {
             title: data.title,
             description: data.description,
-            code: data.code,
+            code: data.code.join(','),
             category: data.category,
             status: data.status,
             thumbnail: data.thumbnail
@@ -35,9 +37,11 @@ function Donation() {
             },
         }).then((result) => {
             if (result.ok) {
-                result.json();
+                result.json().then(res => {
+                    setResponseId(res.message._id)
+                })
+
                 // mensaje de confirmación
-                alert('Producto publicado con exito');
                 reset();
                 return;
             }
@@ -57,6 +61,10 @@ function Donation() {
             errors={errors}
             formState={formState}
             getValues={getValues}
+            onSubmit={onSubmit}
+            setValue={setValue}
+            watch={watch}
+            responseId={responseId}
         />
     )
 }
