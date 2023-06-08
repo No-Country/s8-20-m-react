@@ -8,11 +8,12 @@ function Donation() {
 
     const {
         register,
-        handleSubmit,
         reset,
         formState,
         formState: { errors },
-        getValues
+        getValues,
+        setValue,
+        watch
     } = useForm();
 
     const onSubmit = (data: FieldValues) => {
@@ -20,7 +21,7 @@ function Donation() {
         const productData = {
             title: data.title,
             description: data.description,
-            code: data.code,
+            code: data.code.join(','),
             category: data.category,
             status: data.status,
             thumbnail: data.thumbnail
@@ -57,6 +58,9 @@ function Donation() {
             errors={errors}
             formState={formState}
             getValues={getValues}
+            onSubmit={onSubmit}
+            setValue={setValue}
+            watch={watch}
         />
     )
 }

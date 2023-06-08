@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { type Dispatch, type FunctionComponent, type SetStateAction } from "react";
-import { type FieldErrors, type FieldValues, type FormState, type UseFormGetValues, type UseFormRegister } from "react-hook-form";
+import { type FieldErrors, type FieldValues, type FormState, type SubmitHandler, type UseFormGetValues, type UseFormRegister, type UseFormSetValue, type UseFormWatch } from "react-hook-form";
 import Counter from "./Counter";
 import FifthStep from "./FifthStep";
 import FinalStep from "./FinalStep";
@@ -15,7 +15,10 @@ interface FormStep1Props {
     register: UseFormRegister<FieldValues>,
     errors: FieldErrors<FieldValues>,
     formState: FormState<FieldValues>,
-    getValues: UseFormGetValues<FieldValues>
+    getValues: UseFormGetValues<FieldValues>,
+    onSubmit: SubmitHandler<FieldValues>,
+    setValue: UseFormSetValue<FieldValues>,
+    watch: UseFormWatch<FieldValues>
 }
 
 const FormIndex: FunctionComponent<FormStep1Props> = ({
@@ -23,7 +26,10 @@ const FormIndex: FunctionComponent<FormStep1Props> = ({
     setDonationStep,
     register,
     errors,
-    getValues
+    getValues,
+    onSubmit,
+    setValue,
+    watch
 }) => {
 
     const router = useRouter()
@@ -36,12 +42,11 @@ const FormIndex: FunctionComponent<FormStep1Props> = ({
         }
 
         if (donationStep === 5) {
-            console.log("ENVIANDO...")
+            const values = getValues()
+            void onSubmit(values)
         }
 
         setDonationStep(donationStep + 1)
-        const values = getValues()
-        console.log(values)
     }
 
     const handlePrev = () => {
@@ -67,11 +72,13 @@ const FormIndex: FunctionComponent<FormStep1Props> = ({
                 register={register}
                 errors={errors}
                 getValues={getValues}
+                setValue={setValue}
             />}
             {donationStep === 2 && <SecondStep
                 register={register}
-                // errors={errors}
+                setValue={setValue}
                 getValues={getValues}
+                watch={watch}
             />}
             {donationStep === 3 && <ThirdStep
                 register={register}
@@ -90,6 +97,8 @@ const FormIndex: FunctionComponent<FormStep1Props> = ({
             <div className="flex gap-2 mt-16 mb-14 md:justify-center">
                 {donationStep > 1 && donationStep < 6 && <button className={`${donationStep === 5 ? "w-full mx-auto md:mx-0 sm:w-1/2 md:w-[15%]" : "w-full md:w-[15%]"} w-full text-primary text-sm px-12 py-3 rounded-[20px] transition-all border border-black active:border-[#d25c5c] hover:bg-white hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]`} onClick={handlePrev}>Atrás</button>}
                 {donationStep !== 6 && <button className={`${donationStep === 1 ? "w-full mx-auto sm:w-[15%]" : "w-full md:w-[15%]"} bg-primary text-white text-sm px-12 py-3 rounded-[20px] transition-all active:bg-[#d25c5c] hover:bg-[#a22424] hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]`} onClick={handleNext}>Siguiente</button>}
+
+
 
                 {donationStep === 6 && <button className={` md:w-[15%] w-full text-primary text-sm px-7 py-3 rounded-[20px] transition-all border border-black active:border-[#d25c5c] hover:bg-white hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]`} onClick={handleGoToStart}>Volver al inicio</button>}
                 {donationStep === 6 && <button className={` md:w-[15%] w-full bg-primary text-white text-sm px-7 py-3 rounded-[20px] transition-all active:bg-[#d25c5c] hover:bg-[#a22424] hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]`} onClick={handleGoToPost}>Ver publicación</button>}

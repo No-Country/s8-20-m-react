@@ -1,17 +1,18 @@
 import LoadingImg from "@/icons/loadingImg";
 import Image from "next/image";
 import { useState, type FunctionComponent } from "react";
-import { type FieldErrors, type FieldValues, type UseFormGetValues, type UseFormRegister } from "react-hook-form";
+import { type FieldErrors, type FieldValues, type UseFormGetValues, type UseFormRegister, type UseFormSetValue } from "react-hook-form";
 import ImageUploader from "./imageUploader";
 
 
 interface FirstStepInterface {
     register: UseFormRegister<FieldValues>,
     errors: FieldErrors<FieldValues>,
-    getValues: UseFormGetValues<FieldValues>
+    getValues: UseFormGetValues<FieldValues>,
+    setValue: UseFormSetValue<FieldValues>,
 }
 
-const FirstStep: FunctionComponent<FirstStepInterface> = ({ register }) => {
+const FirstStep: FunctionComponent<FirstStepInterface> = ({ register, setValue }) => {
 
     const [imageUrl, setImageUrl] = useState<string[]>([])
 
@@ -19,7 +20,7 @@ const FirstStep: FunctionComponent<FirstStepInterface> = ({ register }) => {
         <div className="">
             <h1 className="text-[1.37rem] my-4 text-left">Subí fotos de tu producto</h1>
             <form>
-                <ImageUploader setImageUrl={setImageUrl}>
+                <ImageUploader setImageUrl={setImageUrl} setValue={setValue} >
                     <>
                         <label htmlFor="code" className="cursor-pointer">
                             <div className="my-3 border-[3px] border-[#7C7C7C] rounded-2xl border-dashed h-[178px] md:h-[22rem] md:w-4/5 md:mx-auto m px-8 py-4 flex flex-col justify-center ">
@@ -30,7 +31,7 @@ const FirstStep: FunctionComponent<FirstStepInterface> = ({ register }) => {
                                 <p className="text-xs text-center text-[#585858]">Formatos permitidos: .png y .jpg. Hasta 4 MB</p>
                             </div>
                         </label>
-                        <input {...register("code")} type="text" name="code" value={imageUrl} hidden />
+                        <input {...register("code")} name="code" value={imageUrl} hidden />
                     </>
                 </ImageUploader>
                 <div className="my-3 flex flex-wrap gap-3 mx-auto w-fit justify-left">

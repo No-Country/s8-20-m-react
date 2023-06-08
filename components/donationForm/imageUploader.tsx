@@ -1,12 +1,14 @@
 import { Client, type PickerResponse } from "filestack-js";
 import { useEffect, useState, type Dispatch, type FunctionComponent, type ReactNode, type SetStateAction } from "react";
+import { type FieldValues, type UseFormSetValue } from "react-hook-form";
 
 interface ImageUploaderProps {
     setImageUrl: Dispatch<SetStateAction<string[]>>;
-    children: ReactNode
+    children: ReactNode,
+    setValue: UseFormSetValue<FieldValues>,
 }
 
-const ImageUploader: FunctionComponent<ImageUploaderProps> = ({ setImageUrl, children }) => {
+const ImageUploader: FunctionComponent<ImageUploaderProps> = ({ setImageUrl, children, setValue }) => {
 
     const [isClient, setIsClient] = useState(false);
     const [picker, setPicker] = useState<any>(null);
@@ -37,6 +39,7 @@ const ImageUploader: FunctionComponent<ImageUploaderProps> = ({ setImageUrl, chi
 
     function updateForm(result: PickerResponse) {
         const array = result.filesUploaded.map(e => e.url);
+        setValue('code', array)
         setImageUrl(array)
     }
 
