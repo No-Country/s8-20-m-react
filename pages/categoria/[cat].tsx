@@ -50,7 +50,7 @@ function ItemList() {
                 <div className="flex justify-between px-4 lg:flex-col">
                     <div className="flex lg:border-b-2 lg:pb-3 lg:border-[#b6b6b6]">
                         <Link href="/categorias" className="flex items-center"> <ArrowRight /> </Link>
-                        <h1 className="text-2xl lg:text-3xl capitalize">{catName && catName.replace('-', ' ')}</h1>
+                        <h1 className="text-2xl lg:text-3xl capitalize">{catName && catName.replaceAll('-', ' ')}</h1>
                     </div>
                     <button className="flex items-center lg:mt-8">
                         <FilterIcon className="w-6 h-6 lg:w-12 lg:h-12" />
@@ -59,7 +59,7 @@ function ItemList() {
                 </div>
 
                 <ul className="grid grid-cols-2 gap-x-2 gap-y-6 p-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:px-28">
-                    {[...(new Array(10))].map((e, idx) => <li className="rounded-[10px] overflow-hidden bg-white" key={idx}>
+                    {[...(new Array(4))].map((e, idx) => <li className="rounded-[10px] overflow-hidden bg-white" key={idx}>
                         <Link href="/product">
                             <div className="w-full h-[166px] bg-gray "></div>
                             <h2 className="text-xl mt-2 text-center py-2 text-neutro"></h2>

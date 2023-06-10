@@ -120,34 +120,28 @@ const Product = () => {
                     </div>
                 </div>
                 <Carousel className="rounded-xl md:hidden">
-                    {images.map((image, index) => (
-                        <div key={index} className="flex justify-center">
-                            <Image
-                                src={image.src}
-                                width={500}
-                                height={500}
-                                alt={image.alt}
-                                className="h-full w-full object-cover"
-                            />
-                        </div>
-                    ))}
+                    {images.map((image, index) => {
+                        if (index === 0) {
+                            return (<div key={index} className="flex justify-center w-[500px] h-[500px] bg-gray ">
+                            </div>)
+                        }
+                        return (<div key={index} className="flex justify-center w-[500px] h-[500px] bg-gray ">
+                        </div>)
+                    })}
                 </Carousel>
                 <div className="hidden md:grid md:grid-cols-2 gap-4">
-                    <div>
-                        <Image
-                            src="/ProductEjemplo.png"
-                            width={1000}
-                            height={1000}
-                            alt="Remera casual blanca"
-                        />
+                    <div className="w-[500px] h-[500px] bg-gray">
                     </div>
                     <div className="grid grid-cols-2 gap-4">
-                        {[...Array(4)].map((image, index) => (
-                            <div key={index} className="flex justify-center w-[500px] h-[500px] bg-gray ">
-                            </div>
-                        ))}
+                        {[...Array(2)].map((image, index) => {
+                            return (
+                                <div key={index} className="flex justify-center w-[300px] h-[300px] bg-gray">
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
+
                 <div className="pt-6 flex flex-col md:flex-row justify-between items-center">
                     <div className="flex">
                         <Avatar
@@ -225,7 +219,7 @@ const Product = () => {
                     />
                 </div>
                 <div className="grid col-start-2 row-start-1 grid-cols-2 gap-4">
-                    {data.code.split(',').map((e: string, idx: number) => {
+                    {data.code.includes(',') ? data.code.split(',').map((e: string, idx: number) => {
                         if (e === data.thumbnail) {
                             return null;
                         }
@@ -235,7 +229,9 @@ const Product = () => {
                                 <Image src={e} alt="" fill className="object-cover" />
                             </div>
                         );
-                    })}
+                    }) : <div className="flex justify-center w-[300px] h-[300px] bg-gray relative overflow-hidden">
+                        <Image src={data.code} alt="" fill className="object-cover" />
+                    </div>}
                 </div>
             </div>
             <button className={`my-4 ml-[85%] w-full md:w-[15%] bg-primary text-white text-sm px-4 py-3 rounded-[20px] transition-all active:bg-[#d25c5c] hover:bg-[#a22424] hover:shadow-[0px_4px_8px_3px_rgba(0,_0,_0,_0.1),_0px_1px_3px_rgba(0,_0,_0,_0.02)]`} onClick={() => { router.push('https://api.whatsapp.com/send?phone=1126731105') }}>Contactar</button>

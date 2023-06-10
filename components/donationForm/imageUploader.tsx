@@ -16,7 +16,7 @@ const ImageUploader: FunctionComponent<ImageUploaderProps> = ({ setImageUrl, chi
     useEffect(() => {
         setIsClient(true);
 
-        const client = new Client("Aqg69XSJm2mWkrOC4QTCTz");
+        const client = new Client(`${process.env.NEXT_PUBLIC_FILESTACK_API_KEY}`);
 
         const options = {
             onUploadDone: updateForm,
